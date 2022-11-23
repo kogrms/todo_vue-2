@@ -22,7 +22,7 @@
 <script>
 import TodoList from "@/components/TodoList.vue";
 import AddTodo from "@/components/AddTodo.vue";
-import Loader from "@/components/LoaderEllipsis.vue";
+import LoaderEllipsis from "@/components/LoaderEllipsis.vue";
 
 export default {
   name: "App",
@@ -68,7 +68,7 @@ export default {
   components: {
     TodoList,
     AddTodo,
-    Loader,
+    Loader: LoaderEllipsis,
   },
 };
 </script>
