@@ -5,7 +5,7 @@
       <input
         type="checkbox"
         v-bind:checked="todo.completed"
-        v-on:change="todo.completed = !todo.completed"
+        v-on:change="changeTodoStatus(todo.id)"
       />
       <strong>{{ index + 1 }}</strong>
       {{ todo.title | uppercase }}
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import store from "@/store";
+
 export default {
   props: {
     todo: {
@@ -24,6 +26,13 @@ export default {
       required: true,
     },
     index: Number,
+  },
+  methods: {
+    changeTodoStatus(id) {
+      console.log(typeof id);
+      store.commit("changeTodoStatus", id);
+      // console.log(e.target.id);
+    },
   },
   filters: {
     uppercase(value) {

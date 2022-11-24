@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// import store from "../store/index";
 export default {
   data() {
     return {
@@ -16,6 +17,8 @@ export default {
     onSubmit() {
       if (this.title.trim()) {
         const newTodo = {
+          // id: store.state.todos.length + 1,
+          // id: store.state.todos[store.state.todos.length - 1].id + 1,
           id: Date.now(),
           title: this.title,
           completed: false,

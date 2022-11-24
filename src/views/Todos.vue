@@ -55,10 +55,12 @@ export default {
   },
   methods: {
     rmTodo(id) {
-      this.todos = this.todos.filter((t) => t.id !== id);
+      // this.todos = this.todos.filter((t) => t.id !== id);
+      store.commit("rmTodo", id);
     },
     addTodo(todo) {
-      this.todos.push(todo);
+      // this.todos.push(todo);
+      store.commit("addTodo", todo);
     },
   },
   components: {
