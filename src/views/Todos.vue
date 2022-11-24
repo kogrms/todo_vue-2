@@ -23,27 +23,23 @@
 import TodoList from "@/components/TodoList.vue";
 import AddTodo from "@/components/AddTodo.vue";
 import LoaderEllipsis from "@/components/LoaderEllipsis.vue";
+import store from "../store/index";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
   data() {
     return {
-      todos: [],
-      loading: true,
+      // todos: store.state.todos,
+      // loading: store.state.loading,
       filter: "all",
     };
   },
   mounted() {
-    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((response) => response.json())
-      .then((json) => {
-        setTimeout(() => {
-          this.todos = json;
-          this.loading = false;
-        }, 1000);
-      });
+    store.commit("initialiseStore");
   },
   computed: {
+    ...mapState(["todos", "loading"]),
     filteredTodos() {
       if (this.filter === "all") {
         return this.todos;
