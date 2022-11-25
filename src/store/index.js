@@ -45,10 +45,6 @@ export default new Vuex.Store({
           // console.log(i);
         }
       }
-
-      // Vue.set(state.todos, indexOfItem, newValue);
-
-      // state.todos[id].completed = !state.todos[id].completed;
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
   },

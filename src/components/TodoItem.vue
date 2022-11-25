@@ -1,19 +1,21 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <li>
-    <span v-bind:class="{ done: todo.completed }">
-      <input
-        type="checkbox"
-        v-bind:checked="todo.completed"
-        v-on:change="changeTodoStatus(todo.id)"
-      />
-      <strong>{{ index + 1 }}</strong>
-      {{ todo.title | uppercase }}
-    </span>
-    <button class="btn-rm" v-on:click="$emit('rm-todo', todo.id)">
-      &times;
-    </button>
-  </li>
+  <transition name="fade">
+    <li>
+      <span v-bind:class="{ done: todo.completed }">
+        <input
+          type="checkbox"
+          v-bind:checked="todo.completed"
+          v-on:change="changeTodoStatus(todo.id)"
+        />
+        <strong>{{ index + 1 }}</strong>
+        {{ todo.title | uppercase }}
+      </span>
+      <button class="btn-rm" v-on:click="$emit('rm-todo', todo.id)">
+        &times;
+      </button>
+    </li>
+  </transition>
 </template>
 
 <script>
@@ -86,5 +88,15 @@ input {
 
 .done {
   text-decoration: line-through;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
