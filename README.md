@@ -1,2 +1,3 @@
 # Todo_vue-2
-Basic Todo app on vue.js 2.x, vue-router and vuex
+
+Basic Todo app on Vue.js 2.x, Vue-router and Vuex with loading initial data from JSONPlaceholder and saving it in localStorage
