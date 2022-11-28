@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input type="text" v-model="title" />
+    <input type="text" v-model="title" placeholder="Enter task here" />
     <button type="submit">Add task</button>
   </form>
 </template>
@@ -44,5 +44,9 @@ form {
 
 input {
   width: 70vw;
+}
+
+button {
+  width: calc(30vw - 35px);
 }
 </style>

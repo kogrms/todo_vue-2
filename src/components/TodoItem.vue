@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     changeTodoStatus(id) {
-      console.log(typeof id);
+      // console.log(typeof id);
       store.commit("changeTodoStatus", id);
       // console.log(e.target.id);
     },
